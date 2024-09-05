@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatTableModule} from '@angular/material/table';
 
 import { InicioRoutingModule } from './inicio-routing.module';
 import { InicioComponent } from './pages/inicio/inicio.component';
@@ -21,7 +22,8 @@ import { FormularioComponent } from './components/formulario/formulario.componen
     //
     MatIconModule, 
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatTableModule
   ],
   exports: [
     InicioComponent,
@@ -29,7 +31,8 @@ import { FormularioComponent } from './components/formulario/formulario.componen
     //
     MatIconModule, 
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatTableModule
   ]
 })
 export class InicioModule { }
