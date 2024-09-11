@@ -1,10 +1,5 @@
 {
-<<<<<<< HEAD
   "name": "pasantias-prueba",
-=======
-  "name": "proyecto-web-eventos",
->>>>>>> 65db6a9325eadd4ab448db4d5c590a3d137eaeb2
-  "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
