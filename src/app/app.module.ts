@@ -4,9 +4,8 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { UserService } from './services/user.service';
 
-
+import { EventService } from './services/event.service';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -20,7 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule // Importar módulo HTTP para solicitudes php
   ],
   providers: [
-    UserService
+    EventService
   ],
   bootstrap: [AppComponent]
 })
