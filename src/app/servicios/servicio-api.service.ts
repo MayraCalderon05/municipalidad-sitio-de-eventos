@@ -15,9 +15,6 @@ export class ServicioApiService {
 
   constructor(private http: HttpClient) { }
 
-  obtenerDatos(): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}obtenerDatos.php`);
-  }
-    
+
   */
 }
