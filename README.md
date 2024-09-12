@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # PasantiasPrueba
+=======
+# ProyectoWebEventos
+>>>>>>> 65db6a9325eadd4ab448db4d5c590a3d137eaeb2
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.14.
 
