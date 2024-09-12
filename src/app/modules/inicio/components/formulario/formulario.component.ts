@@ -15,7 +15,7 @@ export class FormularioComponent {
     fechaFinalizacion: '',
     img: ''
   }
-  /*
+  
   eventosProximos: Evento[] = [
     {
       nombre:'corrida', 
@@ -46,7 +46,7 @@ export class FormularioComponent {
       img: 'https://imgs.search.brave.com/Zfqis5KZtaBuxsB10YqfwHIlCweJ6DiWyCFrt_EuJUU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/cmlvbmVncm8uY29t/LmFyL3dwLWNvbnRl/bnQvdXBsb2Fkcy8y/MDIyLzAzL0NpcG9s/bGV0dGktMzYtY29y/cmlkYS1sYXJnYWRh/LXByb2Zlc2lvbmFs/LUZsb3JlbmNpYS1T/YWx0by0zLmpwZWc'
     }
   ];
-  */
+  
   
 }
 

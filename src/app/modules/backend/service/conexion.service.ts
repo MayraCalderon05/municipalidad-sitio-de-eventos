@@ -1,12 +1,23 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class ConexionService {
 
-  constructor(public http: HttpClient) { }
+  constructor(private http: HttpClient) { }
+
+  ngOnInit(){
+    this.http.get('')
+  }
+
+
+
+
+
+
 /*
   const mysql = require('mysql');
 

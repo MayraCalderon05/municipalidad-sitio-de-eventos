@@ -10,11 +10,13 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let event from eventosProximos">
-      <th>id: </th>
-      <td>Nombre</td>
-      <td>Otto</td>
-      <td>mdo</td>
+    <tr *ngFor="let event of eventosProximos">
+      <th>id</th>
+      <td>{{event.nombre}}</td>
+      <td>{{event.description}}</td>
+      <td>{{event.fechaInicio}}</td>
+      <td>{{event.fechaFinalizacion}}</td>
+      <img src="{{event.img}}" alt="" width="50%">
     </tr>
   </tbody>
 </table>

@@ -1,5 +1,5 @@
 <?php
-/*Todo lo que esté dentro de este archivo está relacinoado con las credenciales
+/*Todo lo que esté dentro de este archivo está relacinado con las credenciales
 nos permite tener un sólo lugar donde manipular las credenciales de la base de datos, así nos
 ahorramos el cambiarlas desde todos los archivos*/
     define('DB_HOST', '10.10.0.62');
