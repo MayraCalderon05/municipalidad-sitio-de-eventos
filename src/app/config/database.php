@@ -1,10 +1,27 @@
 <?php
-/*Todo lo que esté dentro de este archivo está relacinado con las credenciales
-nos permite tener un sólo lugar donde manipular las credenciales de la base de datos, así nos
-ahorramos el cambiarlas desde todos los archivos*/
-    define('DB_HOST', '10.10.0.62');
-    define('DB_USER', 'desarrollo');
-    define('DB_PASS', 'fisca1234');
-    define('DB_NAME', 'eventos_municipales');
+namespace App\Config;
+include 'credenciales.php';
+use PDO;
+use PDOException;
 
+Class database {
+    private $dbHost = DB_HOST;
+    private $dbUser = DB_USER;
+    private $dbPass = DB_PASS;
+    private $dbName = DB_NAME;
+    private $conn;
+
+    public function getconnection() { 
+        $this ->conn = null;
+
+        try {
+            $this ->conn = new PDO("mysql:host=". $this->dbHost. ";dbname=". $this->dbName, $this->dbUser, $this->dbPass);
+            $this ->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        } catch (PDOException $exception) {
+            echo "Connection error: ". $exception->getMessage();
+        }
+        return $this ->conn;  //retornamos la conexión al objeto PDO
+    }
+
+}
 ?>
