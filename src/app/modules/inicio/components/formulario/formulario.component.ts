@@ -7,14 +7,15 @@ import { Evento } from '../../../../models/evento';
   styleUrls: ['./formulario.component.css']
 })
 export class FormularioComponent {
-  
+  /*
   evento: Evento = {
     nombre: '',
     description: '',
-    fechaInicio: '',
+    fechaInicio: 01/05/206,
     fechaFinalizacion: '',
     img: ''
   }
+    
   
   eventosProximos: Evento[] = [
     {
@@ -47,6 +48,6 @@ export class FormularioComponent {
     }
   ];
   
-  
+  */
 }
 

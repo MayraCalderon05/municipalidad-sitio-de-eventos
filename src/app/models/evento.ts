@@ -1,8 +1,8 @@
 export interface Evento {
     nombre: string;
     description: string;
-    fechaInicio: string;
-    fechaFinalizacion: string;
+    fechaInicio: Date;
+    fechaFinalizacion: Date;
     img: string;
 }
 
