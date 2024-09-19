@@ -32,5 +32,4 @@ class Evento
             echo 'Conexión exitosa a la base de datos,';
         }
     }
-    $miInsert = $this->connection->prepare('INSERT INTO evento (uid,nombre,fecha_inicio,fecha_finalizacion,descripcion,img) VALUES (1,'curso de pasteleria','2024-09-10','2025-06-03','Curso sobre pasteleria básica','sin imagen adherida')') 
 }
