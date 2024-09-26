@@ -1,4 +1,4 @@
-<h2>Editar mascota <mat-icon>pets</mat-icon></h2>
+<h2>Editar Evento <mat-icon>event</mat-icon></h2>
 <form (ngSubmit)="onSubmit()" #formEvento="ngForm">
     <p>
         <mat-form-field>
@@ -9,16 +9,12 @@
     </p>
     <p>
         <mat-form-field>
-            <input matInput name="fecha_inicio" [(ngModel)]="evento.fecha_inicio"
-                type="date"
-                placeholder="Raza">
+            <input matInput id="fecha_inicio" type="date" [(ngModel)]="evento.fecha_inicio" [ngModel]="evento.fecha_inicio | date: 'yyyy-MM-dd'" name="fecha_inicio">
         </mat-form-field>
     </p>
     <p>
         <mat-form-field>
-            <input matInput name="fecha_finalizacion" [(ngModel)]="evento.fecha_finalizacion"
-                type="date"
-                placeholder="Raza">
+            <input matInput id="fecha_finalizacion" type="date" [(ngModel)]="evento.fecha_finalizacion" [ngModel]="evento.fecha_finalizacion | date: 'yyyy-MM-dd'" name="fecha_finalizacion">
         </mat-form-field>
     </p>
     <p>

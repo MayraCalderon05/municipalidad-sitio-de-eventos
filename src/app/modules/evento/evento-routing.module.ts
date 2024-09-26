@@ -7,7 +7,7 @@ import { EditEventoComponent } from './components/edit-evento/edit-evento.compon
 
 const routes: Routes = [
   { path: 'eventos', component: ListEventComponent },
-  { path: 'eventos/editar/:id', component: EditEventoComponent },
+  { path: 'eventos/editar/:uid', component: EditEventoComponent },
   { path: 'eventos/agregar', component: FormEventComponent },
 
 ];

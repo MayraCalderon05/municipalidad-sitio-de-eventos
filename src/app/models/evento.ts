@@ -7,6 +7,5 @@ export class Evento {
         public descripcion: string,
         public img: string,
     ) { }
-
 }
 

@@ -1,6 +1,13 @@
 <?php
-header("Access-Control-Allow-Origin: http://localhost:4200");
-header("Access-Control-Allow-Methods: DELETE");
+
+// Permitir acceso desde cualquier origen
+header("Access-Control-Allow-Origin: *");
+// Métodos HTTP permitidos
+header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
+// Encabezados permitidos
+header("Access-Control-Allow-Headers: Content-Type, Authorization");
+
+header('Content-Type: application/json');
 
 $metodo = $_SERVER["REQUEST_METHOD"];
 if ($metodo != "DELETE" && $metodo != "OPTIONS") {

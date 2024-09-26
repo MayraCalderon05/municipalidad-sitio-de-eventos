@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http'; // peticiones al servidor
 import { Evento } from '../models/evento';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs'; // manejar las respuestas asincrónicas de las peticiones HTTP
 
 @Injectable({
   providedIn: 'root'
 })
 export class EventService {
-  private baseUrl = 'http://localhost/php';
+  private baseUrl = 'http://localhost/php'; // URL base para las peticiones HTTP, donde se harán a un backend en PHP alojado localmente.
 
   constructor(private http: HttpClient) { }
 
@@ -15,7 +15,7 @@ export class EventService {
     return this.http.get<Evento[]>(`${this.baseUrl}/getEventos.php`);
   }
 
-  getEventoById(uid: string | number): Observable<Evento> {
+  getEventoById(uid: number): Observable<Evento> {
     return this.http.get<Evento>(`${this.baseUrl}/getEventoById.php?idEvento=${uid}`);
   }
 
@@ -27,7 +27,9 @@ export class EventService {
     return this.http.delete(`${this.baseUrl}/deleteEvento.php?idEvento=${evento.uid}`);
   }
 
-  updateEvento(evento: Evento) {
+  updateEvento(evento: Evento): Observable<any> {
     return this.http.put(`${this.baseUrl}/updateEvento.php`, evento);
   }
+  
 }
+
