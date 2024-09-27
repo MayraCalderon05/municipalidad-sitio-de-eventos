@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BrowserModule } from '@angular/platform-browser';
 //?importaciones de angular
 import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
@@ -10,17 +9,18 @@ import {MatTableModule} from '@angular/material/table';
 import { InicioRoutingModule } from './inicio-routing.module';
 import { InicioComponent } from './pages/inicio/inicio.component';
 import { FormularioComponent } from './components/formulario/formulario.component';
+import { CrudModule } from '../crud/crud.module';
 
 
 @NgModule({
   declarations: [
     InicioComponent,
-    FormularioComponent
+    FormularioComponent,
   ],
   imports: [
     CommonModule,
-    BrowserModule,
     InicioRoutingModule,
+    CrudModule,
     //
     MatIconModule, 
     MatInputModule,

@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ConectarService {
-  private apiurl: string = 'http://localhost/database.php';
+  private apiurl: string = 'http://localhost/api';
   constructor(private http:HttpClient) { }
 
   obtenerDatos(): Observable <any> {

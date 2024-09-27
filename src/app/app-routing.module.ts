@@ -6,7 +6,7 @@ const routes: Routes = [
   {path:"", component:InicioComponent},
   {path:"",loadChildren:()=>import('./modules/autentificacion/autentificacion.module').then(m=>m.AutentificacionModule)},
   {path:"",loadChildren:()=>import('./modules/inicio/inicio.module').then(m=>m.InicioModule)},
-
+  {path:"",loadChildren:()=>import('./modules/crud/crud.module').then(m=>m.CrudModule)},
 ];
 
 @NgModule({

@@ -7,11 +7,14 @@ import { CrudComponent } from './pages/crud/crud.component';
 
 @NgModule({
   declarations: [
-    CrudComponent
+    CrudComponent,
   ],
   imports: [
     CommonModule,
     CrudRoutingModule
+  ],
+  exports: [
+    CrudComponent
   ]
 })
 export class CrudModule { }
