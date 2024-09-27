@@ -10,72 +10,75 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./edit-evento.component.css']
 })
 export class EditEventoComponent implements OnInit {
-
+ 
+  // Inicializa un objeto evento con valores por defecto.
   public evento: Evento = new Evento(0, "", new Date(), new Date(), "", "");
 
-  constructor(private route: ActivatedRoute,
-    private router: Router, private eventosService: EventService,
-    private snackBar: MatSnackBar) { }
+  // Inyeccion de dependencias a traves de el constructor
+  constructor(
+    private route: ActivatedRoute,  
+    private router: Router,  
+    private eventosService: EventService,  
+    private snackBar: MatSnackBar  
+  ) { }
 
   ngOnInit() {
-    // Obtén el ID del parámetro de la URL y conviértelo en número
+    // Obtiene el parámetro "uid" de la URL, que corresponde al ID del evento.
     let idEvento: string | null = this.route.snapshot.paramMap.get("uid");
 
+    // si el ID del evento existe...
     if (idEvento) {
-      let idEventoNumber: number = Number(idEvento);  // Convierte a número
+      //cConvierte el ID del evento de string a número.
+      let idEventoNumber: number = Number(idEvento);
 
+      // metodo para obtener el evento por su ID.
       this.eventosService.getEventoById(idEventoNumber).subscribe((evento: Evento) => {
+        // Asigna los datos obtenidos al objeto `evento` del componente.
         this.evento = evento;
-        // Asegurarse de que las fechas recibidas son objetos Date
+        // las fechas recibidas del backend se convierten en objetos Date.
         this.evento.fecha_inicio = new Date(evento.fecha_inicio);
         this.evento.fecha_finalizacion = new Date(evento.fecha_finalizacion);
       });
+
     } else {
-      // Maneja el caso donde idEvento es null, por ejemplo redirigir o mostrar un error
-      this.router.navigate(['/eventos']);  // Redirigir si no se encuentra el ID
+      // Si no se proporciona un ID válido se redirige
+      this.volver()
     }
   }
 
+  // metodo para cuando se guardan los datos del formulario
   onSubmit() {
-    // Obteniendo las fechas como strings del input
-    const fechaInicioStr = (<HTMLInputElement>document.getElementById('fecha_inicio')).value;
-    const fechaFinalizacionStr = (<HTMLInputElement>document.getElementById('fecha_finalizacion')).value;
+    // Prepara el objeto del evento para enviarlo al backend.
+    const eventoFormateado = {
+      uid: this.evento.uid,
+      nombre: this.evento.nombre,
+      fecha_inicio: this.evento.fecha_inicio,  // Mantiene el formato 'YYYY-MM-DD'.
+      fecha_finalizacion: this.evento.fecha_finalizacion,  // Mantiene el formato 'YYYY-MM-DD'.
+      descripcion: this.evento.descripcion,
+      img: this.evento.img
+    };
 
-    // Crear un nuevo objeto Evento con las fechas como Date
-    const eventoParaEnviar = new Evento(
-      this.evento.uid,
-      this.evento.nombre,
-      new Date(fechaInicioStr),  // Mantener como Date
-      new Date(fechaFinalizacionStr),  // Mantener como Date
-      this.evento.descripcion,
-      this.evento.img
-    );
-
-    // Llamada al servicio con el objeto de tipo Evento
-    this.eventosService.updateEvento(eventoParaEnviar).subscribe({
+    // metodo del servicio para actualizar el evento.
+    this.eventosService.updateEvento(eventoFormateado).subscribe({
+      // si se actualiza...
       next: () => {
-        // Si la actualización es exitosa, mostrar el snackBar y redirigir
         this.snackBar.open('Evento actualizado', undefined, {
-          duration: 1500,
+          duration: 1500,  
         });
-        this.volver();  // Redirigir a la lista de eventos
+        // redirigir a la lista de eventos
+        this.volver();
       },
+      // si no se actualiza...
       error: (err) => {
-        // En caso de error, mostrar un mensaje
         console.error('Error al actualizar el evento', err);
         this.snackBar.open('Error al actualizar el evento', undefined, {
-          duration: 1500,
+          duration: 1500,  
         });
       }
     });
   }
 
-  // Método para formatear la fecha en 'YYYY-MM-DD'
-  formatDate(date: Date): string {
-    const d = new Date(date);
-    return d.toISOString().split('T')[0];  // 'YYYY-MM-DD'
-  }
-
+  // Método para redirigir a la lista de eventos.
   volver() {
     this.router.navigate(['/eventos']);
   }

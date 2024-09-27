@@ -2,33 +2,28 @@
 <form (ngSubmit)="onSubmit()" #formEvento="ngForm">
     <p>
         <mat-form-field>
-            <input matInput name="nombre" [(ngModel)]="evento.nombre"
-                type="text"
-                placeholder="Nombre">
+            <input matInput name="nombre" [(ngModel)]="evento.nombre" type="text" placeholder="Nombre">
         </mat-form-field>
     </p>
     <p>
         <mat-form-field>
-            <input matInput id="fecha_inicio" type="date" [(ngModel)]="evento.fecha_inicio" [ngModel]="evento.fecha_inicio | date: 'yyyy-MM-dd'" name="fecha_inicio">
+            <input matInput id="fecha_inicio" type="date" [(ngModel)]="evento.fecha_inicio" name="fecha_inicio">
         </mat-form-field>
     </p>
     <p>
         <mat-form-field>
-            <input matInput id="fecha_finalizacion" type="date" [(ngModel)]="evento.fecha_finalizacion" [ngModel]="evento.fecha_finalizacion | date: 'yyyy-MM-dd'" name="fecha_finalizacion">
+            <input matInput id="fecha_finalizacion" type="date" [(ngModel)]="evento.fecha_finalizacion"
+                name="fecha_finalizacion">
         </mat-form-field>
     </p>
     <p>
         <mat-form-field>
-            <input matInput name="descripcion" [(ngModel)]="evento.descripcion"
-                type="text"
-                placeholder="descripcion">
+            <input matInput name="descripcion" [(ngModel)]="evento.descripcion" type="text" placeholder="descripcion">
         </mat-form-field>
     </p>
     <p>
         <mat-form-field>
-            <input matInput name="img" [(ngModel)]="evento.img"
-                type="text"
-                placeholder="img">
+            <input matInput name="img" [(ngModel)]="evento.img" type="text" placeholder="img">
         </mat-form-field>
     </p>
     <p>

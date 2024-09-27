@@ -9,25 +9,31 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   templateUrl: './form-event.component.html',
   styleUrls: ['./form-event.component.css'],
 })
+
 export class FormEventComponent implements OnInit {
 
-  constructor(private eventosService: EventService,
+// Inyección de dependencias a través del constructor:
+  constructor(
+    private eventosService: EventService, 
     private snackBar: MatSnackBar,
-    private router: Router,
+    private router: Router, 
   ) { }
 
   ngOnInit() {
   }
-  eventoModel = new Evento (0, "", new Date(), new Date(), "", "")
 
+  // Inicializa un modelo del evento, creando un nuevo objeto de la clase `Evento` con valores por defecto.
+  eventoModel = new Evento(0, "", new Date(), new Date(), "", "");
+
+  // Método para enviar datos del formulario cuando se guardan
   onSubmit() {
+    // Llama método `addEvento` para agregar el evento utilizando los datos del modelo `eventoModel`.
     this.eventosService.addEvento(this.eventoModel).subscribe(() => {
-      this.snackBar.open('Evento guardada', undefined, {
-        duration: 1500,
+      this.snackBar.open('Evento guardado', undefined, {
+        duration: 1500, 
       });
       this.router.navigate(['/eventos']);
-    })
+    });
   }
-
-  
 }
+

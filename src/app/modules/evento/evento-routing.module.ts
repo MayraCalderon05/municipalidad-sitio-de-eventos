@@ -9,7 +9,6 @@ const routes: Routes = [
   { path: 'eventos', component: ListEventComponent },
   { path: 'eventos/editar/:uid', component: EditEventoComponent },
   { path: 'eventos/agregar', component: FormEventComponent },
-
 ];
 
 @NgModule({

@@ -1,4 +1,4 @@
-<h2>Listado de mascotas</h2>
+<h2>Listado de Eventos</h2>
 <table mat-table [dataSource]="eventos" class="mat-elevation-z8" style="width:100%;">
     <ng-container matColumnDef="nombre">
         <th mat-header-cell *matHeaderCellDef>Nombre</th>
@@ -38,6 +38,10 @@
         </td>
     </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="['nombre', 'fecha_inicio', 'fecha_finalizacion', 'descripcion', 'img', 'editar', 'eliminar']"></tr>
-    <tr mat-row *matRowDef="let fila; columns: ['nombre', 'fecha_inicio', 'fecha_finalizacion', 'descripcion', 'img', 'editar', 'eliminar'];"></tr>
+    <tr mat-header-row
+        *matHeaderRowDef="['nombre', 'fecha_inicio', 'fecha_finalizacion', 'descripcion', 'img', 'editar', 'eliminar']">
+    </tr>
+    <tr mat-row
+        *matRowDef="let fila; columns: ['nombre', 'fecha_inicio', 'fecha_finalizacion', 'descripcion', 'img', 'editar', 'eliminar'];">
+    </tr>
 </table>
