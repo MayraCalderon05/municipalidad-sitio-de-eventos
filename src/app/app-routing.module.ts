@@ -3,10 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { InicioComponent } from './modules/inicio/pages/inicio/inicio.component';
 
 const routes: Routes = [
-  {path:"", component:InicioComponent},
-  {path:"",loadChildren:()=>import('./modules/autentificacion/autentificacion.module').then(m=>m.AutentificacionModule)},
-  {path:"",loadChildren:()=>import('./modules/inicio/inicio.module').then(m=>m.InicioModule)},
-  {path:"",loadChildren:()=>import('./modules/crud/crud.module').then(m=>m.CrudModule)},
+  { path: 'eventos', loadChildren: () => import('./modules/evento/evento.module').then(m => m.EventoModule) },
+  { path: '', redirectTo: '/eventos', pathMatch: 'full' },
+  { path: "**", redirectTo: "/eventos" }
 ];
 
 @NgModule({
