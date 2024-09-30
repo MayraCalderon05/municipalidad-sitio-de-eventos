@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { InicioComponent } from './modules/inicio/pages/inicio/inicio.component';
 
 const routes: Routes = [
   { path: 'eventos', loadChildren: () => import('./modules/evento/evento.module').then(m => m.EventoModule) },
