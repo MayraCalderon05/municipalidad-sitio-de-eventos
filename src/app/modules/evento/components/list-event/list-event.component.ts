@@ -10,32 +10,38 @@ import { MatDialog } from '@angular/material/dialog';
   templateUrl: './list-event.component.html',
   styleUrls: ['./list-event.component.css'],
 })
-
-export class ListEventComponent implements OnInit  {
-
+export class ListEventComponent implements OnInit {
   // array de eventos de tipo Evento con un evento vacío.
-  public eventos: Evento[] = [ new Evento(0, "", new Date(), new Date(), "", "") ]; 
+  public eventos: Evento[] = [
+    new Evento(0, '', new Date(), new Date(), '', ''),
+  ];
 
   // Inyección de dependencias a través del constructor:
-  constructor(private eventosService: EventService, private dialogo: MatDialog, private snackBar: MatSnackBar) { }
+  constructor(
+    private eventosService: EventService,
+    private dialogo: MatDialog,
+    private snackBar: MatSnackBar
+  ) {}
 
   // Método para eliminar un evento.
   eliminarEvento(evento: Evento) {
-    // diálogo de confirmación 
+    // diálogo de confirmación
     this.dialogo
       .open(DialogoConfirmacionComponent, {
-        data: `¿Realmente quieres eliminar a ${evento.nombre}?`
+        data: `¿Realmente quieres eliminar a ${evento.nombre}?`,
       })
       .afterClosed() // espera la respuesta del dialogo
-      .subscribe((confirmado: Boolean) => { // suscripcion para recibir el resultado de la confirmación
+      .subscribe((confirmado: Boolean) => {
+        // suscripcion para recibir el resultado de la confirmación
         if (!confirmado) return; // si no se confirma, sale del método
         // si se confirma la eliminación, llama al servicio para eliminar el evento
         this.eventosService
           .deleteEvento(evento) // elimina el evento a través del servicio
-          .subscribe(() => { // cuando se elimina
-            this.obtenerEventos(); // se actualiza la lista de eventos 
+          .subscribe(() => {
+            // cuando se elimina
+            this.obtenerEventos(); // se actualiza la lista de eventos
             this.snackBar.open('Evento eliminado', undefined, {
-              duration: 1500, 
+              duration: 1500,
             });
           });
       });
@@ -45,7 +51,7 @@ export class ListEventComponent implements OnInit  {
     this.obtenerEventos(); // carga los eventos cuando se inicia el componente.
   }
 
-  // Método para obtener los eventos 
+  // Método para obtener los eventos
   obtenerEventos() {
     return this.eventosService
       .getEventos() // obtiene los eventos
