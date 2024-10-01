@@ -11,6 +11,8 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { EventoModule } from './modules/evento/evento.module';
 
+import { AuthModule } from './modules/auth/auth.module';
+
 // Importa módulos de Angular Material
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -33,6 +35,7 @@ import { MatDialogModule } from '@angular/material/dialog';
   ],
   imports: [
     EventoModule,
+    AuthModule,
     BrowserModule,
     FormsModule,
     AppRoutingModule,
