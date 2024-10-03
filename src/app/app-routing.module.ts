@@ -6,6 +6,8 @@ const routes: Routes = [
   { path: '', redirectTo: '/eventos', pathMatch: 'full' },
   { path: "**", redirectTo: "/eventos" },
   { path: 'registro', loadChildren:() => import('./modules/auth/auth.module').then(m=>m.AuthModule) },
+  { path: 'login', loadChildren:() => import('./modules/auth/auth.module').then(m=>m.AuthModule) },
+
 ];
 
 @NgModule({
