@@ -1,0 +1,74 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+ 
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat';
+}
+.cabecera{
+    display: flex;
+    justify-content: space-between;
+    background-color:#FFA07A;
+    padding: 10px;
+}
+.nav{
+    max-width: 900px;
+    margin: auto;
+    font-size: 20px;
+}
+.menu-desplegable{
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+}
+.menu-desplegable >li >a{
+display: block;
+padding: 15px 20px;
+color: white;
+text-decoration: none;
+transition:  all .3s ease 0s;
+
+}
+.menu-desplegable >li:hover{
+    background-color: red;
+}
+.sub-menu{
+    position: absolute;
+    display: none;
+    list-style: none;
+    text-decoration: none;
+    width: 200px;
+    background-color: rgb(22, 22, 26);
+    transform: translateX(-20px);
+    
+}
+.sub-menu >li >a{
+    color: white;
+text-decoration: none;
+}
+.sub-menu >li{
+    padding: 5px;
+}
+.sub-menu li:hover{
+    background-color: red;
+}
+.menu-desplegable li:hover .sub-menu{
+    display: block;
+}
+
+.registro{
+    border: none;
+    background-color:#dd8b6b;
+   
+    padding: 12px 30px;
+    border-radius: 30px;
+    color: white;
+    font-weight: bold;
+    transition: .4s;
+}
+.registro:hover{
+    transform: scale(1.2);
+    cursor: pointer;
+}
