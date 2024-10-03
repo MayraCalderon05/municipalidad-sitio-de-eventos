@@ -1,16 +1,10 @@
 <?php
 
 class Database {
-   /*private $host = "172.16.20.30";
+    private $host = "10.10.0.62";
     private $db_name = "eventos_municipales";
     private $username = "desarrollo";
     private $password = "fisca1234";
-    private $conn;*/
-
-    private $host = "localhost";
-    private $db_name = "eventos_municipales";
-    private $username = "root";
-    private $password = "";
     private $conn;
 
     public function getConnection() {

@@ -4,6 +4,9 @@ header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS"); // Mét
 header("Access-Control-Allow-Headers: Content-Type, Authorization"); // Encabezados permitidos
 header('Content-Type: application/json'); // Establecer el tipo de contenido como JSON
 
+// Incluir el archivo de conexión a la base de datos
+$bd = include_once "db.php";
+
 // Decodificar el contenido JSON recibido en la petición HTTP
 $jsonEvento = json_decode(file_get_contents("php://input"));
 
@@ -11,9 +14,6 @@ $jsonEvento = json_decode(file_get_contents("php://input"));
 if (!$jsonEvento) {
     exit("No hay datos"); // Terminar la ejecución si no se reciben datos válidos
 }
-
-// Incluir el archivo de conexión a la base de datos
-$bd = include_once "db.php";
 
 // Preparar una sentencia SQL para insertar un nuevo evento en la base de datos
 $sentencia = $bd->prepare("INSERT INTO eventos (nombre, fecha_inicio, fecha_finalizacion, descripcion, img) VALUES (?,?,?,?,?)");

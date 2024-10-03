@@ -1,8 +1,8 @@
 <?php
-header("Access-Control-Allow-Origin: *");  // Permite todas las fuentes
-header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");  // Métodos permitidos
-header("Access-Control-Allow-Headers: Content-Type, Authorization");  // Encabezados permitidos
-
+header("Access-Control-Allow-Origin: *"); // Permitir acceso desde cualquier origen
+header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS"); // Métodos HTTP permitidos
+header("Access-Control-Allow-Headers: Content-Type, Authorization"); // Encabezados permitidos
+header('Content-Type: application/json'); // Establecer el tipo de contenido como JSON
 include_once '../models/Evento.php';
 include_once '../core/Database.php';
 
