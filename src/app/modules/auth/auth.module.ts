@@ -7,6 +7,7 @@ import { RegistroComponent } from './pages/registro/registro.component';
 //- importaciones de angular
 import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
 
 
@@ -20,9 +21,14 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatIconModule,
     MatInputModule,
     MatFormFieldModule,
+    MatButtonModule,
   ],
   exports: [
-    RegistroComponent
+    RegistroComponent,
+    MatIconModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatButtonModule,
   ]
 })
 export class AuthModule { }

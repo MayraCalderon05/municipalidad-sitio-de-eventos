@@ -1,6 +1,6 @@
 .centrado {
     width: auto;
-    margin-top: 5%;
+    margin-top: 2rem;
     display: flex;
     justify-content: center;
 }
@@ -14,4 +14,20 @@
 .bloques {
     display: block;
     width: 100%;
+}
+mat-hint {
+    color: red;
+}
+mat-form-field {
+    width: 100%;
+}
+.botones {
+    width: auto;
+    margin: auto;
+}
+button {
+    margin: 5px;
+}
+a:active {
+    color: cornflowerblue;
 }
