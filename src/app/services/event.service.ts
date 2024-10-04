@@ -7,28 +7,28 @@ import { Observable } from 'rxjs'; // manejar las respuestas asincrónicas de la
   providedIn: 'root'
 })
 export class EventService {
-  private baseUrl = 'http://localhost/php'; // URL base para las peticiones HTTP, donde se harán a un backend en PHP alojado localmente.
+  private baseUrl = 'http://localhost/api-eventos'; // URL base para las peticiones HTTP, donde se harán a un backend en PHP alojado localmente.
 
   constructor(private http: HttpClient) { }
 
-  getEventos(): Observable<Evento[]> {
-    return this.http.get<Evento[]>(`${this.baseUrl}/getEventos.php`);
+  getEventos(): Observable<any> {
+    return this.http.get<Evento[]>(`${this.baseUrl}../core/Router.php`);
   }
 
-  getEventoById(uid: number): Observable<Evento> {
-    return this.http.get<Evento>(`${this.baseUrl}/getEventoById.php?idEvento=${uid}`);
+  getEventoById(uid: number): Observable<any> {
+    return this.http.get<Evento>(`${this.baseUrl}../core/Router.php?get&id=${uid}`);
   }
 
-  addEvento(evento: Evento) {
-    return this.http.post(`${this.baseUrl}/addEvento.php`, evento);
+  addEvento(evento: Evento):Observable<any> {
+    return this.http.post(`${this.baseUrl}../core/Router.php`, evento);
   }
 
-  deleteEvento(evento: Evento) {
-    return this.http.delete(`${this.baseUrl}/deleteEvento.php?idEvento=${evento.uid}`);
+  deleteEvento(evento: Evento): Observable<any> {
+    return this.http.delete(`${this.baseUrl}../core/Router.php?uid=${evento.uid}`);
   }
 
   updateEvento(evento: Evento): Observable<any> {
-    return this.http.put(`${this.baseUrl}/updateEvento.php`, evento);
+    return this.http.put(`${this.baseUrl}../core/Router.php`, evento);
   }
   
 }
