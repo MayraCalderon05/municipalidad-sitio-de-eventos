@@ -24,7 +24,7 @@
     <ng-container matColumnDef="editar">
         <th mat-header-cell *matHeaderCellDef>Editar</th>
         <td mat-cell *matCellDef="let evento">
-            <a mat-icon-button [routerLink]="['/eventos/editar', evento.uid]">
+            <a mat-icon-button [routerLink]="['/eventos/editar-evento', evento.uid]">
                 <mat-icon color="primary">edit</mat-icon>
             </a>
         </td>

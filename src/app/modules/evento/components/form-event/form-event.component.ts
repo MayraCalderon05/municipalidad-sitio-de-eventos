@@ -21,9 +21,10 @@ export class FormEventComponent implements OnInit {
 
   ngOnInit() {
   }
-
+ 
   // Inicializa un modelo del evento, creando un nuevo objeto de la clase `Evento` con valores por defecto.
   eventoModel = new Evento(0, "", new Date(), new Date(), "", "");
+  
 
   // Método para enviar datos del formulario cuando se guardan
   onSubmit() {

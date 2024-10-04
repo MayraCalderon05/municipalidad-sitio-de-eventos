@@ -25,14 +25,14 @@ export class EventService {
     return this.http.get(`${this.baseUrl}../core/Router.php?action=get&id=${uid}`);
   }
 
-  deleteEvento(evento: Evento): Observable<any> {
-    console.log(evento);
-    return this.http.delete(`${this.baseUrl}../core/Router.php?action=delete=${evento}`);
+  deleteEvento(uid: number): Observable<any> {
+    console.log(uid);
+    return this.http.delete(`${this.baseUrl}../core/Router.php?uid=${uid}`);
   }
 
-  updateEvento(evento: Evento): Observable<any> {
+  updateEvento(uid: number, evento: Evento): Observable<any> {
     console.log(evento);
-    return this.http.put(`${this.baseUrl}../core/Router.php`, evento);
+    return this.http.put(`${this.baseUrl}../core/Router.php?uid=${uid}`, evento);
   }
 
   // getEventos(): Observable {
