@@ -3,6 +3,7 @@ import {FormControl, FormGroup, FormBuilder, Validators, NgForm } from '@angular
 import { first } from 'rxjs';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { error } from 'console';
 
 @Component({
   selector: 'app-registro',
@@ -27,9 +28,19 @@ export class RegistroComponent implements OnInit {
 
   onSubmit(){
     if (this.formularioRegistro.valid) {
-      //this.servicioAuth.registrarUsuario()
+      try {
+        const response = this.servicioAuth.registrarUsuario(this.formularioRegistro.value);
+        console.log(response);
+        alert("Usuario creado con éxito")
+      } catch (error) {
+        console.error(error);
+        alert("Ha habido un error al crear el usuario")
+      }
+    } else {
+      //para que marque como que toco todos los campos.
+      this.formularioRegistro.markAllAsTouched();
     }
-  }
+  };
 
   
 

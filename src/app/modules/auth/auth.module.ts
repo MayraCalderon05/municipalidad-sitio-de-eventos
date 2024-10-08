@@ -8,6 +8,7 @@ import { RegistroComponent } from './pages/registro/registro.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
+import { ReactiveFormsModule } from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
 
 
@@ -20,6 +21,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     AuthRoutingModule,
     MatIconModule,
     MatInputModule,
+    ReactiveFormsModule,
     MatFormFieldModule,
     MatButtonModule,
   ],
@@ -27,6 +29,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     RegistroComponent,
     MatIconModule,
     MatInputModule,
+    ReactiveFormsModule,
     MatFormFieldModule,
     MatButtonModule,
   ]
