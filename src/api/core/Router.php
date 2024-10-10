@@ -83,7 +83,7 @@ if (strpos($_SERVER['REQUEST_URI'],'/eventos') !== false) {
             break;
     }
 } elseif (strpos($_SERVER['REQUEST_URI'], '/login') !== false) {
-    $controller = new UsuarioController($database);
+    $controller = new UsuarioController();
     switch ($method) {
         case 'POST':
             $data = json_decode(file_get_contents("php://input"));
@@ -93,8 +93,10 @@ if (strpos($_SERVER['REQUEST_URI'],'/eventos') !== false) {
         default:
             View::render(json_encode(["message" => "Método no permitido"]));
             break;
-    }
+    } 
+
 } else {
+    //ruta no encontrada
     View::render(json_encode(["message" => "Ruta no encontrada"]));
 }
 

@@ -64,24 +64,22 @@ class Usuario {
         return $stmc->execute();
     }
 
-    // Agrega este método en tu clase Usuario
-
-public function login($email, $password) {
-    $query = 'SELECT * FROM ' . $this->table . ' WHERE email = :email LIMIT 1';
-    $stmc = $this->conn->prepare($query);
-    $stmc->bindParam(':email', $email);
-    $stmc->execute();
-
-    if ($stmc->rowCount() > 0) {
-        $user = $stmc->fetch(PDO::FETCH_ASSOC);
-
-        // Verifica la contraseña (considera usar password_hash y password_verify para mayor seguridad)
-        if ($user['password'] === $password) {  // Cambia esto por password_verify si usas hashing
-            return $user; // Devuelve los datos del usuario
+    public function login($email, $password) {
+        $query = 'SELECT * FROM ' . $this->table . ' WHERE email = :email LIMIT 1';
+        $stmc = $this->conn->prepare($query);
+        $stmc->bindParam(':email', $email);
+        $stmc->execute();
+    
+        if ($stmc->rowCount() > 0) {
+            $user = $stmc->fetch(PDO::FETCH_ASSOC);
+    
+            // Verifica la contraseña (considera usar password_hash y password_verify para mayor seguridad)
+            if ($user['password'] === $password) {  // Cambia esto por password_verify si usas hashing
+                return $user; // Devuelve los datos del usuario
+            }
         }
+        return null; // Usuario no encontrado o contraseña incorrecta
     }
-    return null; // Usuario no encontrado o contraseña incorrecta
-}
-
+    
 }
 ?>

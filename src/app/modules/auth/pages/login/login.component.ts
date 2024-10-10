@@ -38,8 +38,9 @@ export class LoginComponent {
           // Verifica que la respuesta sea válida
           if (response && response.message) {
             if (response.message === 'Inicio de sesión exitoso') {
+              alert ("ha iniciado sesion con exitoooo")
               // Redirigir a otra página en caso de éxito
-              this.router.navigate(['/eventos']); // Cambia '/eventos' por la ruta deseada
+              this.router.navigate(['/eventos']);
             } else {
               this.errorMessage = response.message; // Mostrar el mensaje de error
             }

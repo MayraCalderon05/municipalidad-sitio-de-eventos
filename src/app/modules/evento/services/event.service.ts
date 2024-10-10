@@ -14,25 +14,25 @@ export class EventService {
 
   addEvento(eventoData: Evento): Observable<any> {
     console.log(eventoData);
-    return this.http.post(`${this.baseUrl}../core/Router.php`, eventoData);
+    return this.http.post(`${this.baseUrl}/eventos`, eventoData);
   }
 
   getEventos(): Observable<any> {
-    return this.http.get(`${this.baseUrl}../core/Router.php`);
+    return this.http.get(`${this.baseUrl}/eventos`);
   }
 
   getEventoById(uid: number): Observable<any> {
-    return this.http.get(`${this.baseUrl}../core/Router.php?action=get&id=${uid}`);
+    return this.http.get(`${this.baseUrl}/eventos?action=get&id=${uid}`);
   }
 
   deleteEvento(uid: number): Observable<any> {
     console.log(uid);
-    return this.http.delete(`${this.baseUrl}../core/Router.php?uid=${uid}`);
+    return this.http.delete(`${this.baseUrl}/eventos?uid=${uid}`);
   }
 
   updateEvento(uid: number, evento: Evento): Observable<any> {
     console.log(evento);
-    return this.http.put(`${this.baseUrl}../core/Router.php?uid=${uid}`, evento);
+    return this.http.put(`${this.baseUrl}/eventos?uid=${uid}`, evento);
   }
 
   // getEventos(): Observable {

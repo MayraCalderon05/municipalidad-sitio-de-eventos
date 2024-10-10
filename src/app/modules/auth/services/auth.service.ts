@@ -12,7 +12,7 @@ export class AuthService {
   constructor(private http: HttpClient) {}
 
   login(user: User): Observable<any> {
-    return this.http.post(`${this.baseUrl}../core/Router.php/login`, user);
+    return this.http.post(`${this.baseUrl}/login`, user);
   }
 
 }

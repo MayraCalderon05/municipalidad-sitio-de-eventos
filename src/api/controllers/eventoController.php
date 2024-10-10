@@ -1,8 +1,8 @@
 <?php
-header("Access-Control-Allow-Origin: *"); // Permitir acceso desde cualquier origen
-header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS"); // Métodos HTTP permitidos
-header("Access-Control-Allow-Headers: Content-Type, Authorization"); // Encabezados permitidos
-header('Content-Type: application/json'); // Establecer el tipo de contenido como JSON
+header("Access-Control-Allow-Origin: *");  // Permite todas las fuentes
+header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");  // Métodos permitidos
+header("Access-Control-Allow-Headers: Content-Type, Authorization");  // Encabezados permitidos
+
 include_once '../models/Evento.php';
 include_once '../core/Database.php';
 
@@ -16,20 +16,20 @@ class EventoController {
         $this->evento = new Evento($this->db);
     }
 
-    // Obtener todos los productos
+    // Obtener todos los eventos
     public function getAll() {
         $stmt = $this->evento->getAll();
         $eventos = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return json_encode($eventos);
     }
 
-    // Obtener un producto por ID
+    // Obtener un evento por ID
     public function getById($uid) {
         $evento = $this->evento->getById($uid);
         return json_encode($evento);
     }
 
-    // Crear un nuevo producto
+    // Crear un nuevo evento
     public function create($data) {
         $this->evento->nombre = $data->nombre;
         $this->evento->fecha_inicio = $data->fecha_inicio;
@@ -42,7 +42,7 @@ class EventoController {
         return json_encode(["message" => "Error al crear el evento"]);
     }
 
-    // Actualizar un producto
+    // Actualizar un evento
     public function update($uid, $data) {
         $this->evento->nombre = $data->nombre;
         $this->evento->fecha_inicio = $data->fecha_inicio;
@@ -50,12 +50,12 @@ class EventoController {
         $this->evento->descripcion = $data->descripcion;
         $this->evento->img = $data->img;
         if ($this->evento->update($uid)) {
-            return json_encode(["message" => "Producto actualizado con éxito"]);
+            return json_encode(["message" => "Evento actualizado con éxito"]);
         }
-        return json_encode(["message" => "Error al actualizar el producto"]);
+        return json_encode(["message" => "Error al actualizar el evento"]);
     }
 
-    // Eliminar un producto
+    // Eliminar un evento
     public function delete($uid) {
         if ($this->evento->delete($uid)) {
             return json_encode(["message" => "Evento eliminado con éxito"]);
