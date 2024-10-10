@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-login',
@@ -6,16 +10,48 @@ import { Component } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  email: string = '';
-  password: string = '';
-  errorMessage: string | null = null;
+  formLogin: FormGroup;
+  errorMessage: string | null = null; // Para mostrar errores
 
-  onSubmit() {
-    if (this.email === 'usuario@example.com' && this.password === 'contraseña') {
-      console.log('Inicio de sesión exitoso');
-      this.errorMessage = null;
-    } else {
-      this.errorMessage = 'Email o contraseña incorrectos';
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private router: Router
+  ) {
+    // Inicialización del formulario con validaciones
+    this.formLogin = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required]]
+    });
+  }
+
+  // Método para manejar el envío del formulario
+  onSubmit(): void {
+    if (this.formLogin.valid) {
+      const user: User = {
+        email: this.formLogin.value.email,
+        password: this.formLogin.value.password
+      };
+
+      this.authService.login(user).subscribe(
+        response => {
+          // Verifica que la respuesta sea válida
+          if (response && response.message) {
+            if (response.message === 'Inicio de sesión exitoso') {
+              // Redirigir a otra página en caso de éxito
+              this.router.navigate(['/eventos']); // Cambia '/eventos' por la ruta deseada
+            } else {
+              this.errorMessage = response.message; // Mostrar el mensaje de error
+            }
+          } else {
+            this.errorMessage = 'Respuesta no válida del servidor'; // Manejo de respuesta no esperada
+          }
+        },
+        error => {
+          this.errorMessage = 'Error de conexión o servidor'; // Manejo de errores
+          console.error('Error al realizar el login', error);
+        }
+      );
     }
   }
 }

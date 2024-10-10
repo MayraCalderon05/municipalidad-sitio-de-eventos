@@ -13,7 +13,6 @@ export class EditEventoComponent implements OnInit {
  
   // Inicializa un objeto evento con valores por defecto.
   public evento: Evento = new Evento(0, "", new Date(), new Date(), "", "");
-
   // Inyeccion de dependencias a traves de el constructor
   constructor(
     private route: ActivatedRoute,  
@@ -28,16 +27,16 @@ export class EditEventoComponent implements OnInit {
 
     // si el ID del evento existe...
     if (idEvento) {
-      //cConvierte el ID del evento de string a número.
+      //Convierte el ID del evento de string a número.
       let idEventoNumber: number = Number(idEvento);
-
+      console.log(idEventoNumber);
       // metodo para obtener el evento por su ID.
       this.eventosService.getEventoById(idEventoNumber).subscribe((evento: Evento) => {
-        // Asigna los datos obtenidos al objeto `evento` del componente.
+        console.log(idEventoNumber);
         this.evento = evento;
-        // las fechas recibidas del backend se convierten en objetos Date.
-        this.evento.fecha_inicio = new Date(evento.fecha_inicio);
-        this.evento.fecha_finalizacion = new Date(evento.fecha_finalizacion);
+        this.evento.uid = idEventoNumber;
+        evento.fecha_inicio = new Date(evento.fecha_inicio);
+        evento.fecha_finalizacion = new Date(evento.fecha_finalizacion);
       });
 
     } else {
@@ -59,7 +58,7 @@ export class EditEventoComponent implements OnInit {
     };
 
     // metodo del servicio para actualizar el evento.
-    this.eventosService.updateEvento(eventoFormateado).subscribe({
+    this.eventosService.updateEvento(eventoFormateado.uid, eventoFormateado).subscribe({
       // si se actualiza...
       next: () => {
         this.snackBar.open('Evento actualizado', undefined, {
