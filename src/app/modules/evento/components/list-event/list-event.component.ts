@@ -46,15 +46,26 @@ export class ListEventComponent implements OnInit {
           });
       });
   }
-
+  
   ngOnInit() {
     this.obtenerEventos(); // carga los eventos cuando se inicia el componente.
   }
 
   // Método para obtener los eventos
-  obtenerEventos() {
-    return this.eventosService
-      .getEventos() // obtiene los eventos
-      .subscribe((eventos: Evento[]) => this.eventos = eventos); // cuando los datos se reciben, actualiza el array `eventos`.
+
+  obtenerEventos(){
+    this.eventosService.getEventos().subscribe({
+      next: (response)=>{
+        if (Array.isArray(response)) {
+          this.eventos = response;
+        } else {
+          console.error('La respuesta no es compatible:', response);
+          this.eventos = [];
+        }
+      },
+      error: (error) => {
+        console.error('Error al recuperar los eventos:', error);
+      }
+    });
   }
 }

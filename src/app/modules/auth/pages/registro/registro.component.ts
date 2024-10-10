@@ -3,7 +3,8 @@ import {FormControl, FormGroup, FormBuilder, Validators, NgForm } from '@angular
 import { first } from 'rxjs';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
-import { error } from 'console';
+import { User } from 'src/app/models/user';
+
 
 @Component({
   selector: 'app-registro',
@@ -14,6 +15,11 @@ export class RegistroComponent implements OnInit {
   //? variable para que muestre o no la contraseña del campo
   hide = true;
   formularioRegistro: FormGroup;
+  usuarioModel = new User(0,'','','','','');
+  // public usuarios: User[] = [
+  //   new User(0,'','','','',''),
+  // ];
+
 
   constructor(private fb: FormBuilder, private servicioAuth: AuthService, private router: Router){
     //? validacion de los campos para que los necesarios no esten vacios
@@ -28,22 +34,41 @@ export class RegistroComponent implements OnInit {
 
   onSubmit(){
     if (this.formularioRegistro.valid) {
-      try {
-        const response = this.servicioAuth.registrarUsuario(this.formularioRegistro.value);
-        console.log(response);
-        alert("Usuario creado con éxito")
-      } catch (error) {
-        console.error(error);
-        alert("Ha habido un error al crear el usuario")
-      }
+      this.usuarioModel= this.formularioRegistro.value;
+      console.log('Datos enviados correctamente: ', this.usuarioModel);
+      this.servicioAuth.registrarUsuario(this.usuarioModel).subscribe({
+        next: (response) =>{
+          console.log('Datos enviados correctamente: ', this.usuarioModel);
+          this.router.navigate(['/eventos']);
+        },
+        error: (error) =>{
+          console.log('Error al enviar los datos: ', error);
+        }
+      });
     } else {
-      //para que marque como que toco todos los campos.
       this.formularioRegistro.markAllAsTouched();
     }
   };
 
   
 
-  ngOnInit(){}
+  ngOnInit(){
+  }
+
+  // obtenerUsuarios(){
+  //   this.servicioAuth.obtenerUsuarios().subscribe({
+  //     next: (response) => {
+  //       if (Array.isArray(response)) {
+  //         this.usuarios = response;
+  //       } else {
+  //         console.error('La respuesta no es compatible', response);
+  //         this.usuarios=[];
+  //       }
+  //     },
+  //     error : (error) => {
+  //       console.error('Error al obtener usuarios', error);
+  //     }
+  //   });
+  // }
 
 }
