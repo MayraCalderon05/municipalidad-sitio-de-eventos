@@ -7,7 +7,7 @@ import { User } from 'src/app/models/user';
   providedIn: 'root'
 })
 export class AuthService {
-  private baseUrl = 'http://localhost/api/public/index.php'; // URL base para las peticiones HTTP, donde se harán a un backend en PHP alojado localmente.
+  private baseUrl = 'http://localhost/api-jueves/API-municipalidad/public/index.php'; // URL base para las peticiones HTTP, donde se harán a un backend en PHP alojado localmente.
 
   constructor(private http: HttpClient) { }
 
