@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;800&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    
+}
+/*
+import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
+*/
+
+
+.header{
+    font-family: 'Nunito', sans-serif;
+    font-size: 20px;
+    background-color: #a8cf45;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 85px;
+    padding: 5px 4%;
+}
+.titulo{
+    color: #002957;
+    font-size: 700;
+}
+.header .logo{
+    cursor: pointer;
+}
+
+.header .logo img{
+    height: 70px;
+    width: auto;
+    transition: all 0.3s;
+}
+
+.header .logo img:hover{
+    transform: scale(1.2);
+}
+
+
+
+.titulo:hover{
+    transform: scale(1.1);
+}
+
+
+
+.header .nav-links li a:hover{
+    color: #ffbc0e;
+}
+
+.header .btn button{
+    font-weight: 700;
+    color: #1b3039;
+    padding: 9px 25px;
+    background: #eceff1;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+.header .btn button:hover{
+    background-color: #e2f1f8;
+    color: #ffbc0e;
+    transform: scale(1.1);
+}
+
+/*----------------------------------------------------------------------------*/
+.subtitulo{
+    text-align: center;
+    margin-top: 30px;
+    font-size: 200;
+}
+.tarjeta{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin-left: 50px;
+   
+}
+.cards{
+    width: 100%;
+    margin: 20px;
+    border-radius: 6px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
+    cursor: default;
+    transition: all 400ms ease;
+
+}
+.cards:hover{
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4);
+    transform: translateY(-3%);
+}
+.cards img{
+    width: 100%;
+    height: 250px;
+    border-radius: 3px;
+}
+.cards .contenido{
+    padding: 15px;
+    text-align: center;
+}
+.cards .contenido p{
+    line-height: 1.5;
+    color: #6a6a6a;
+}
+.cards .contenido h4{
+    text-align: center;
+    font-weight: 400;
+}
+.cards .contenido a{
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px;
+    margin-top: 10px;
+    color: #2fb4cc;
+    border: 1px solid #2fb4cc;
+    border-radius: 4px;
+    transition: all 400ms ease;
+
+}
+.cards .contenido a:hover{
+    background:#2fb4cc ;
+    color: #fff;
+}
