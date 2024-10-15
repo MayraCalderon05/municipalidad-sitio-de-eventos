@@ -14,7 +14,7 @@ export class ListEventComponent implements OnInit {
   // array de eventos de tipo Evento con un evento vacío.
   public eventos: Evento[] = [
     new Evento(0, '', new Date(), new Date(), '', ''),
-  ];
+  ];  
 
   // Inyección de dependencias a través del constructor:
   constructor(

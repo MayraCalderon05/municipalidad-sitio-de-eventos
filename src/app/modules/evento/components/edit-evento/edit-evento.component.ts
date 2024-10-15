@@ -37,6 +37,10 @@ export class EditEventoComponent implements OnInit {
         this.evento.uid = idEventoNumber;
         evento.fecha_inicio = new Date(evento.fecha_inicio);
         evento.fecha_finalizacion = new Date(evento.fecha_finalizacion);
+        // las fechas recibidas del backend se convierten en objetos Date.
+        this.evento.fecha_inicio = new Date(evento.fecha_inicio);
+        this.evento.fecha_finalizacion = new Date(evento.fecha_finalizacion);
+        console.log(evento)
       });
 
     } else {
