@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'; // peticiones al servidor
-import { Evento } from '../models/evento';
+import { Evento } from 'src/app/models/evento';
 import { Observable } from 'rxjs'; // manejar las respuestas asincrónicas de las peticiones HTTP
 
 @Injectable({
@@ -56,4 +56,3 @@ export class EventService {
   // }
   
 }
-

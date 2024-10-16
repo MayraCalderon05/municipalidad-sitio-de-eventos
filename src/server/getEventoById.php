@@ -4,6 +4,9 @@ header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS"); // Mét
 header("Access-Control-Allow-Headers: Content-Type, Authorization"); // Encabezados permitidos
 header('Content-Type: application/json'); // Establecer el tipo de contenido como JSON
 
+// Incluir el archivo de conexión a la base de datos
+$bd = include_once "db.php";
+
 // Comprobar si el parámetro "idEvento" está vacío
 if (empty($_GET["idEvento"])) {
     exit("No hay id de evento");  // Termina la ejecución si no hay un ID de evento
@@ -11,9 +14,6 @@ if (empty($_GET["idEvento"])) {
 
 // Asignar el valor del parámetro "idEvento" a una variable
 $idEvento = $_GET["idEvento"];
-
-// Incluir el archivo de conexión a la base de datos
-$bd = include_once "db.php";
 
 // Preparar una consulta SQL para seleccionar el evento por su ID
 $sentencia = $bd->prepare("SELECT uid, nombre, fecha_inicio, fecha_finalizacion, descripcion, img FROM eventos WHERE uid = ?");

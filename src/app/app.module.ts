@@ -6,7 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { EventService } from './services/event.service';
+import { EventService } from './modules/evento/services/event.service';
 import { HttpClientModule } from '@angular/common/http';
 
 import { EventoModule } from './modules/evento/evento.module';

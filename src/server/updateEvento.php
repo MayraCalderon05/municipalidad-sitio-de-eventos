@@ -4,6 +4,9 @@ header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS"); // Mét
 header("Access-Control-Allow-Headers: Content-Type, Authorization"); // Encabezados permitidos
 header('Content-Type: application/json'); // Establecer el tipo de contenido como JSON
 
+// Incluir archivo de conexión a la base de datos
+$bd = include_once "db.php";
+
 // Comprobar si el método de solicitud es PUT
 if ($_SERVER["REQUEST_METHOD"] != "PUT") {
     exit("Solo acepto peticiones PUT");  
@@ -16,9 +19,6 @@ $jsonEvento = json_decode(file_get_contents("php://input"));
 if (!$jsonEvento) {
     exit("No hay datos");  
 }
-
-// Incluir archivo de conexión a la base de datos
-$bd = include_once "db.php";
 
 // Preparar la sentencia SQL para actualizar el evento en la base de datos
 $sentencia = $bd->prepare("UPDATE eventos SET nombre = ?, fecha_inicio = ?, fecha_finalizacion = ?, descripcion = ?, img = ? WHERE uid = ?");
