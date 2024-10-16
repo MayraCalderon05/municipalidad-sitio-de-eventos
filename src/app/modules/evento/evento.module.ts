@@ -14,12 +14,14 @@ import { ListEventComponent } from './components/list-event/list-event.component
 import { EditEventoComponent } from './components/edit-evento/edit-evento.component';
 import { DialogoConfirmacionComponent } from './components/dialogo-confirmacion/dialogo-confirmacion.component';
 
+
 @NgModule({
   declarations: [
     FormEventComponent,
     ListEventComponent,
     EditEventoComponent,
-    DialogoConfirmacionComponent
+    DialogoConfirmacionComponent,
+   
   ],
   imports: [
     CommonModule,

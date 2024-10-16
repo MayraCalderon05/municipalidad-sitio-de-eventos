@@ -4,6 +4,9 @@ header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS"); // Mét
 header("Access-Control-Allow-Headers: Content-Type, Authorization"); // Encabezados permitidos
 header('Content-Type: application/json'); // Establecer el tipo de contenido como JSON
 
+// Incluir el archivo de conexión a la base de datos
+$bd = include_once "db.php";
+
 // Obtener el método de la solicitud HTTP
 $metodo = $_SERVER["REQUEST_METHOD"];
 
@@ -19,9 +22,6 @@ if (empty($_GET["idEvento"])) {
 
 // Asignar el valor del parámetro "idEvento" a una variable
 $idEvento = $_GET["idEvento"];
-
-// Incluir el archivo de conexión a la base de datos
-$bd = include_once "db.php";
 
 // Preparar una consulta SQL para eliminar el evento por su ID
 $sentencia = $bd->prepare("DELETE FROM eventos WHERE uid = ?");

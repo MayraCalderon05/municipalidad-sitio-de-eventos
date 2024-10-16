@@ -1,6 +1,6 @@
-import { Injectable, Output, EventEmitter } from '@angular/core';
-import { catchError, map, Observable, throwError } from 'rxjs';
-import  { HttpClient } from '@angular/common/http';
+import { Injectable} from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { User } from 'src/app/models/user';
 
 @Injectable({
@@ -9,7 +9,11 @@ import { User } from 'src/app/models/user';
 export class AuthService {
   private baseUrl = 'http://localhost/api/public/index.php'; // URL base para las peticiones HTTP, donde se harán a un backend en PHP alojado localmente.
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
+
+  login(user: User): Observable<any> {
+    return this.http.post(`${this.baseUrl}/login`, user);
+  }
 
   registrarUsuario(usuarioData: User): Observable<any>{
     console.log(usuarioData);
@@ -19,6 +23,4 @@ export class AuthService {
   obtenerUsuarios(): Observable<any> {
     return this.http.get(`${this.baseUrl}../core/Router.php/registro`);
   }
-
-
 }

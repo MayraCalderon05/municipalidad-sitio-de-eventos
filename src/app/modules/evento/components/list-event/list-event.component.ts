@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EventService } from 'src/app/services/event.service';
+import { EventService } from '../../services/event.service';
 import { Evento } from 'src/app/models/evento';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { DialogoConfirmacionComponent } from '../dialogo-confirmacion/dialogo-confirmacion.component';
@@ -14,7 +14,7 @@ export class ListEventComponent implements OnInit {
   // array de eventos de tipo Evento con un evento vacío.
   public eventos: Evento[] = [
     new Evento(0, '', new Date(), new Date(), '', ''),
-  ];
+  ];  
 
   // Inyección de dependencias a través del constructor:
   constructor(
