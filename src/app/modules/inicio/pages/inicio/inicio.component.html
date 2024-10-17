@@ -1,1 +1,21 @@
-<p>inicio works!</p>
+<nav class="container-fluid color-verde">
+    <div class="row g-2 flex">
+      <div class="col-9 flex centrado-y">
+        <img src="../../../../../assets/img/municipalidad/logo municipal-fotor-bg-remover.png" 
+        alt="Icono municipal"
+        class="img-logo">
+        <h1>Municipalidad de Cipolletti: Sitio de eventos</h1>
+      </div>
+      <div class="col-3 flex derecha centrado-y">
+        <img src="../../../../../assets/img/iconos/inicio-de-sesion.png" 
+        alt="iniciar sesión"
+        class="img-icono"
+        [routerLink]="['/iniciar-sesion']">
+      </div>
+    </div>
+</nav>
+<app-list-event></app-list-event>
+<footer class="container-fluid padding-top footer">
+    <p>&copy; 2024 Municipalidad de Cipolletti. Todos los derechos reservados.</p>
+
+</footer>

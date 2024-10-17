@@ -1,4 +1,58 @@
-<div class="login-container">
+<mat-grid-list cols="2" rowHeight="1:1">
+  <mat-grid-tile>
+    <img
+      src="../../../../../assets/img/municipalidad/imagotipo municipal.jpg"
+      alt="Municipalidad de Cipolletti"
+      width="70%"
+    />
+  </mat-grid-tile>
+  <hr id="linea" />
+  <mat-grid-tile>
+    <form  [formGroup]="formLogin" (ngSubmit)="onSubmit()" class="centrado">
+      <div class="row g-2 text-center">
+        <div class="col-12">
+          <h2 class="bloques">Iniciar Sesión</h2>
+        </div>
+        <div class="col-12">
+          <mat-form-field>
+            <mat-label>Ingrese su email</mat-label>
+            <input
+              matInput
+              placeholder="pat@example.com"
+              type="email" 
+              id="email" 
+              required 
+              formControlName="email"
+            />
+          </mat-form-field>
+        </div>
+        <div class="col-12">
+          <mat-form-field>
+            <mat-label>Ingrese su contraseña</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" 
+            id="password"
+            required 
+            formControlName="password"/>
+            <button
+              mat-icon-button
+              matSuffix
+              (click)="hide = !hide"
+              [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide"
+            >
+              <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+            </button>
+          </mat-form-field>
+        </div>
+        <button mat-raised-button color="primary" class="botones" type="submit" [disabled]="!formLogin.valid">
+          Iniciar sesión
+        </button>
+      </div>
+    </form>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<!-- <div class="login-container">
   <h2>Iniciar Sesión</h2>
   <form [formGroup]="formLogin" (ngSubmit)="onSubmit()">
     <div>
@@ -12,4 +66,4 @@
     <button type="submit" [disabled]="!formLogin.valid">Iniciar Sesión</button>
   </form>
   <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
-</div>
+</div> -->

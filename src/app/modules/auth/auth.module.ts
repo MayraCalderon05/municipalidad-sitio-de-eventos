@@ -11,7 +11,8 @@ import {MatButtonModule} from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';
+import {MatGridListModule} from '@angular/material/grid-list';
+
 
 @NgModule({
   declarations: [
@@ -26,14 +27,17 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatFormFieldModule,
     MatButtonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatGridListModule
   ],
   exports: [
+    LoginComponent,
     MatIconModule,
     MatInputModule,
     ReactiveFormsModule,
     MatFormFieldModule,
     MatButtonModule,
+    MatGridListModule,
   ]
 })
 export class AuthModule { }

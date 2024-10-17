@@ -10,6 +10,7 @@ import { User } from 'src/app/models/user';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+  hide = true;
   formLogin: FormGroup;
   errorMessage: string | null = null; // Para mostrar errores
 
@@ -38,9 +39,9 @@ export class LoginComponent {
           // Verifica que la respuesta sea válida
           if (response && response.message) {
             if (response.message === 'Inicio de sesión exitoso') {
-              alert ("ha iniciado sesion con exitoooo")
+              alert ("ha iniciado sesion con exito")
               // Redirigir a otra página en caso de éxito
-              this.router.navigate(['/eventos']);
+              this.router.navigate(['/inicio']);
             } else {
               this.errorMessage = response.message; // Mostrar el mensaje de error
             }

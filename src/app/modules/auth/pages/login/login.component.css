@@ -1,57 +1,47 @@
-.login-container {
-    max-width: 400px;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+  #linea{
+    border-left: 1px solid #666666; 
+    width: 1px; 
+    height: 80%; 
+    position: absolute; 
+    left: 50%
   }
-  
-  h2 {
-    text-align: center;
-  }
-  
-  .form-group {
-    margin-bottom: 15px;
-  }
-  
-  label {
+  .centrado {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.padding {
+    padding: 10px;
+}
+.borde {
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+.bloques {
     display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-  }
-  
-  input {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
-  
-  input:focus {
-    border-color: #007bff; 
-  }
-  
-  .btn {
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  
-  .btn:hover {
-    background-color: #0056b3;
-  }
-  
-  .error {
+}
+mat-hint {
     color: red;
-    margin-top: 10px;
-    text-align: center;
-  }
+}
+mat-form-field {
+    width: 100%;
+}
+.botones {
+    width: auto;
+    margin: auto;
+}
+button {
+    margin: 5px;
+}
+a:active {
+    color: cornflowerblue;
+}
+.error {
+  color: red;
+  margin-top: 10px;
+  text-align: center;
+}
   

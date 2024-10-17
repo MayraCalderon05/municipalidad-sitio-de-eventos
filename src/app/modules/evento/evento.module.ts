@@ -32,5 +32,11 @@ import { DialogoConfirmacionComponent } from './components/dialogo-confirmacion/
     MatTableModule,
     MatIconModule,
   ],
+  exports:[
+    FormEventComponent,
+    ListEventComponent,
+    EditEventoComponent,
+    DialogoConfirmacionComponent,
+  ]
 })
 export class EventoModule { }

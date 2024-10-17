@@ -51,6 +51,7 @@ export class EditEventoComponent implements OnInit {
 
   // metodo para cuando se guardan los datos del formulario
   onSubmit() {
+    console.log('ingreso a la funcion');
     // Prepara el objeto del evento para enviarlo al backend.
     const eventoFormateado = {
       uid: this.evento.uid,
@@ -83,6 +84,6 @@ export class EditEventoComponent implements OnInit {
 
   // Método para redirigir a la lista de eventos.
   volver() {
-    this.router.navigate(['/eventos']);
+    this.router.navigate(['/inicio']);
   }
 }

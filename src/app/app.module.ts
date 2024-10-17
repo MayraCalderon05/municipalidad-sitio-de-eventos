@@ -10,8 +10,8 @@ import { EventService } from './modules/evento/services/event.service';
 import { HttpClientModule } from '@angular/common/http';
 
 import { EventoModule } from './modules/evento/evento.module';
-
 import { AuthModule } from './modules/auth/auth.module';
+import { InicioModule } from './modules/inicio/inicio.module';
 
 // Importa módulos de Angular Material
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -34,6 +34,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     AppComponent,
   ],
   imports: [
+    //modulos
+    InicioModule,
     EventoModule,
     AuthModule,
     BrowserModule,
