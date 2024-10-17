@@ -1,6 +1,6 @@
 export class Evento {
     constructor(
-        public uid: number,
+        public id: number,
         public nombre: string,
         public fecha_inicio: Date,
         public fecha_finalizacion: Date,

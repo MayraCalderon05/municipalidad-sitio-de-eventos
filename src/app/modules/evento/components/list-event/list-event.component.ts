@@ -36,7 +36,7 @@ export class ListEventComponent implements OnInit {
         if (!confirmado) return; // si no se confirma, sale del método
         // si se confirma la eliminación, llama al servicio para eliminar el evento
         this.eventosService
-          .deleteEvento(evento.uid) // elimina el evento a través del servicio
+          .deleteEvento(evento.id) // elimina el evento a través del servicio
           .subscribe(() => {
             // cuando se elimina
             this.obtenerEventos(); // se actualiza la lista de eventos

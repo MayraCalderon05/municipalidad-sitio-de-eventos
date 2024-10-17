@@ -22,8 +22,8 @@ export class EditEventoComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    // Obtiene el parámetro "uid" de la URL, que corresponde al ID del evento.
-    let idEvento: string | null = this.route.snapshot.paramMap.get("uid");
+    // Obtiene el parámetro "id" de la URL, que corresponde al ID del evento.
+    let idEvento: string | null = this.route.snapshot.paramMap.get("id");
 
     // si el ID del evento existe...
     if (idEvento) {
@@ -34,7 +34,7 @@ export class EditEventoComponent implements OnInit {
       this.eventosService.getEventoById(idEventoNumber).subscribe((evento: Evento) => {
         console.log(idEventoNumber);
         this.evento = evento;
-        this.evento.uid = idEventoNumber;
+        this.evento.id = idEventoNumber;
         evento.fecha_inicio = new Date(evento.fecha_inicio);
         evento.fecha_finalizacion = new Date(evento.fecha_finalizacion);
         // las fechas recibidas del backend se convierten en objetos Date.
@@ -54,7 +54,7 @@ export class EditEventoComponent implements OnInit {
     console.log('ingreso a la funcion');
     // Prepara el objeto del evento para enviarlo al backend.
     const eventoFormateado = {
-      uid: this.evento.uid,
+      id: this.evento.id,
       nombre: this.evento.nombre,
       fecha_inicio: this.evento.fecha_inicio,  // Mantiene el formato 'YYYY-MM-DD'.
       fecha_finalizacion: this.evento.fecha_finalizacion,  // Mantiene el formato 'YYYY-MM-DD'.
@@ -63,7 +63,7 @@ export class EditEventoComponent implements OnInit {
     };
 
     // metodo del servicio para actualizar el evento.
-    this.eventosService.updateEvento(eventoFormateado.uid, eventoFormateado).subscribe({
+    this.eventosService.updateEvento(eventoFormateado.id, eventoFormateado).subscribe({
       // si se actualiza...
       next: () => {
         this.snackBar.open('Evento actualizado', undefined, {

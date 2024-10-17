@@ -21,26 +21,26 @@ export class EventService {
     return this.http.get(`${this.baseUrl}/eventos`);
   }
 
-  getEventoById(uid: number): Observable<any> {
-    return this.http.get(`${this.baseUrl}/eventos?action=get&id=${uid}`);
+  getEventoById(id: number): Observable<any> {
+    return this.http.get(`${this.baseUrl}/eventos?action=get&id=${id}`);
   }
 
-  deleteEvento(uid: number): Observable<any> {
-    console.log(uid);
-    return this.http.delete(`${this.baseUrl}/eventos?uid=${uid}`);
+  deleteEvento(id: number): Observable<any> {
+    console.log(id);
+    return this.http.delete(`${this.baseUrl}/eventos?id=${id}`);
   }
 
-  updateEvento(uid: number, evento: Evento): Observable<any> {
+  updateEvento(id: number, evento: Evento): Observable<any> {
     console.log(evento);
-    return this.http.put(`${this.baseUrl}/eventos?uid=${uid}`, evento);
+    return this.http.put(`${this.baseUrl}/eventos?id=${id}`, evento);
   }
 
   // getEventos(): Observable {
   //   return this.http.get(`${this.baseUrl}/getEventos.php`);
   // }
 
-  // getEventoById(uid: number): Observable<Evento> {
-  //   return this.http.get<Evento>(`${this.baseUrl}/getEventoById.php?idEvento=${uid}`);
+  // getEventoById(id: number): Observable<Evento> {
+  //   return this.http.get<Evento>(`${this.baseUrl}/getEventoById.php?idEvento=${id}`);
   // }
 
   // addEvento(evento: Evento) {
@@ -48,7 +48,7 @@ export class EventService {
   // }
 
   // deleteEvento(evento: Evento) {
-  //   return this.http.delete(`${this.baseUrl}/deleteEvento.php?idEvento=${evento.uid}`);
+  //   return this.http.delete(`${this.baseUrl}/deleteEvento.php?idEvento=${evento.id}`);
   // }
 
   // updateEvento(evento: Evento): Observable<any> {
