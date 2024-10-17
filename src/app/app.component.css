@@ -1,0 +1,38 @@
+.barra {
+    background-color: #a8cf45; /* Cambia este color al que prefieras */
+  }
+  
+  .barra mat-toolbar-row {
+    display: flex; /* Asegura que los elementos estén en línea */
+    justify-content: space-between; /* Espacia los elementos */
+  }
+  
+  .barra span {
+    flex: 1; /* Ocupa el espacio restante */
+    text-align: center; /* Centra el texto */
+  }
+  
+  .contenedor-padre {
+    height: 100vh; /* Asegúrate de que el contenedor ocupe toda la altura de la ventana */
+    display: flex;
+    flex-direction: column; /* Para organizar los elementos verticalmente */
+  }
+  
+  .contenido {
+    display: flex;
+    flex: 1; /* Asegura que ocupe el espacio restante */
+  }
+  
+  .padding-10 {
+    padding: 10px; /* Asegúrate de que no haya márgenes adicionales que afecten el diseño */
+  }
+  
+  .mat-toolbar-row button:last-child {
+    margin-left: auto; /* Empuja el botón de perfil al lado derecho */
+  }
+
+  .custom-icon {
+    color: #002957; /* Tu color personalizado */
+  }
+  
+  

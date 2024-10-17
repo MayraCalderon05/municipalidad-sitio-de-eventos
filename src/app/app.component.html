@@ -1,39 +1,59 @@
 <div class="contenedor-padre">
-    <mat-toolbar class="barra" color="warn">
-      <mat-toolbar-row>
-        <button (click)="cajon.toggle()" mat-icon-button>
-          <mat-icon>menu</mat-icon>
-        </button>
-        <span>
-          CRUD Angular con PHP y MySQL&nbsp;
-        </span>
-      </mat-toolbar-row>
-    </mat-toolbar>
-    <mat-sidenav-container class="contenido">
-      <mat-sidenav style="min-width: 300px;" #cajon mode="side">
-        <mat-nav-list>
-          <a mat-list-item routerLink="/eventos/agregar">
-            <mat-icon color="accent">add</mat-icon>
-            Agregar Evento
-          </a>
-          <a mat-list-item routerLink="/eventos">
-            <mat-icon color="primary">event</mat-icon>
-            Ver EVENTOS
-          </a>
-        </mat-nav-list>
+  <mat-toolbar class="barra" color="warn">
+    <mat-toolbar-row>
+      <button (click)="cajon.toggle()" mat-icon-button aria-label="Toggle menu">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Sitio de EVENTOS</span>
+      <button mat-icon-button aria-label="Perfil">
+        <mat-icon>person</mat-icon>
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="contenido">
+<mat-sidenav style="min-width: 300px;" #cajon mode="over">
+      <mat-nav-list>
         <mat-accordion>
           <mat-expansion-panel>
             <mat-expansion-panel-header>
               <mat-panel-title>
-                Más
+                <a mat-list-item routerLink="/eventos">
+                  <mat-icon class="custom-icon">event</mat-icon>
+                  Ver EVENTOS
+                </a>
               </mat-panel-title>
             </mat-expansion-panel-header>
-
+            <a mat-list-item routerLink="/eventos/agregar">
+              <mat-icon class="custom-icon">add</mat-icon>
+              Agregar Evento
+            </a>
           </mat-expansion-panel>
         </mat-accordion>
-      </mat-sidenav>
-      <mat-sidenav-content class="padding-10">
-        <router-outlet></router-outlet>
-      </mat-sidenav-content>
-    </mat-sidenav-container>
-  </div>
+      </mat-nav-list>
+
+      <mat-nav-list>
+        <a mat-list-item routerLink="/eventos">
+          <mat-icon class="custom-icon">group</mat-icon>
+          Usuarios
+        </a>
+        <a mat-list-item routerLink="/eventos">
+          <mat-icon class="custom-icon">group</mat-icon>
+          Grupos
+        </a>
+        <a mat-list-item routerLink="/eventos/agregar">
+          <mat-icon class="custom-icon">security</mat-icon>
+          Seguridad
+        </a>
+        <a mat-list-item routerLink="/eventos/agregar">
+          <mat-icon class="custom-icon">logout</mat-icon>
+          Cerrar Sesión
+        </a>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content class="padding-10">
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
