@@ -34,4 +34,7 @@
   .custom-icon {
     color: #002957; /* Tu color personalizado */
   }
-  
+  .centrado{
+    margin: auto;
+    width: 100%;
+  }
