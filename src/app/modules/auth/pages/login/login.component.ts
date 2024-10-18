@@ -41,7 +41,7 @@ export class LoginComponent {
             if (response.message === 'Inicio de sesión exitoso') {
               alert ("ha iniciado sesion con exito")
               // Redirigir a otra página en caso de éxito
-              this.router.navigate(['/inicio']);
+              this.router.navigate(['/admin']);
             } else {
               this.errorMessage = response.message; // Mostrar el mensaje de error
             }
