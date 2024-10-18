@@ -12,15 +12,15 @@ export class AuthService {
   constructor(private http: HttpClient) {}
 
   login(user: User): Observable<any> {
-    return this.http.post(`${this.baseUrl}/login`, user);
+    return this.http.post(`${this.baseUrl}/iniciar-sesion`, user);
   }
 
-  registrarUsuario(usuarioData: User): Observable<any>{
-    console.log(usuarioData);
-    return this.http.post(`${this.baseUrl}../core/Router.php/registro`, usuarioData);
-  }
+  // registrarUsuario(usuarioData: User): Observable<any>{
+  //   console.log(usuarioData);
+  //   return this.http.post(`${this.baseUrl}../core/Router.php/registro`, usuarioData);
+  // }
 
-  obtenerUsuarios(): Observable<any> {
-    return this.http.get(`${this.baseUrl}../core/Router.php/registro`);
-  }
+  // obtenerUsuarios(): Observable<any> {
+  //   return this.http.get(`${this.baseUrl}../core/Router.php/registro`);
+  // }
 }
