@@ -32,7 +32,6 @@ body{
     padding-top: 20px;
 }
 .footer{
-    position: fixed;
     background-color: #a8cf45;
     height: 15%;
     bottom: 0; 

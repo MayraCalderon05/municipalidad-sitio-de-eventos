@@ -2,19 +2,46 @@
     width: 60%;
     margin: 20px auto;
 }
-.d-flex{
+
+.card-evento{
+    margin: 10px;
+    display: block;
+}
+
+
+.card-header {
     display: flex;
+    align-items: center;
+    background-color: #4CAF50; /* Verde del fondo */
+    padding: 0px;
 }
-.justify-center{
+
+.card-title{
+    margin: 10px 0px;
+    font-weight:600;
+}
+  
+.description {
+    font-size: 16px;
+    color: #333;
+    margin: 10px 0;
+}
+  
+.event-date {
+    font-size: 14px;
+    color: #888;
+}
+  
+.register-button {
+    background-color: #ff4081; /* Color rosa */
+    color: white;
+}
+.centrado{
+    display: flex;
     justify-content: center;
-    align-content: center;
 }
-.card-text{
-    font-size: 18px;
+  
+.register-button:hover {
+    background-color: #e60073;
 }
-.justify-right{
-    justify-content: right;
-}
-.align-center{
-    align-content: center;
-}
+  

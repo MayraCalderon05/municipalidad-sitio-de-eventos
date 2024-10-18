@@ -7,6 +7,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
 
 
 import { EventoRoutingModule } from './evento-routing.module';
@@ -35,7 +36,8 @@ import { CardEventoComponent } from './components/card-evento/card-evento.compon
     EventoRoutingModule,
     MatTableModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatCardModule
   ],
   exports:[
     FormEventComponent,
@@ -43,6 +45,7 @@ import { CardEventoComponent } from './components/card-evento/card-evento.compon
     EditEventoComponent,
     DialogoConfirmacionComponent,
     CardEventoComponent,
+    MatCardModule,
   ]
 })
 export class EventoModule { }
